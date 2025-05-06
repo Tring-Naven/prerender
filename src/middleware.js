@@ -103,13 +103,15 @@ export async function middleware(request) {
     !isBot ||
     (extension.length && IGNORE_EXTENSIONS.includes(extension))
   ) {
+    console.log("isrender=======>>>>>>", isPrerender)
     return NextResponse.next();
   } else {
     // Check if request is coming from a bot
+    console.log("isBot=======>>>>>>", isBot)
     if (isBot) {
       const newURL = `http://service.prerender.io/${request.url}`;
       const newHeaders = new Headers(request.headers);
-      newHeaders.set("X-Prerender-Token", 'QaTQM5xW0djTEIw82Hyd');
+      newHeaders.set("X-Prerender-Token", '5AhjW6zbr8UzvMhEuwSn');
       newHeaders.set("X-Prerender-Int-Type", "NextJS");
 
     
